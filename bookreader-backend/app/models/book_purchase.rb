@@ -1,0 +1,2 @@
+class BookPurchase < ApplicationRecord
+end

@@ -14,3 +14,13 @@
         --at least 2 of: Create, Read, Update, Delete
         --Use appropriate HTTP verb
 
+##Plan:
+
+Book Reader:
+
+    User
+    
+    User has-many book purchases
+
+    book purchase has-one book
+    user has-one purchase
