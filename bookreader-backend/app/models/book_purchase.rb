@@ -1,2 +1,0 @@
-class BookPurchase < ApplicationRecord
-end
