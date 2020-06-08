@@ -66,6 +66,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 document.getElementById("submit").addEventListener('click', (event) => {
 
+  let book_id = document.getElementById("book_id").value
+  //let contents = document.getElementById("contents").value
+  //let author_name = document.getElementById("author_name").value
+
+  console.log(book_id)
+
    
   let configObj = {
     method: "GET",
@@ -75,7 +81,7 @@ document.getElementById("submit").addEventListener('click', (event) => {
     }
   };
    
-  fetch("http://localhost:3002/books/1", configObj)
+  fetch(`http://localhost:3002/books/${book_id}`, configObj)
     .then(function(response) {
       return response.json();
     })
