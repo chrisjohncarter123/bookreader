@@ -4,7 +4,7 @@ function clearBooks(){
   books.innerHTML = ``
 }
 
-function addBooks(books){
+function addBooks(object){
 
   let booksList = ``
     object.forEach(element => {
@@ -69,7 +69,24 @@ function addAllBooks(){
 }
 
 
-function addBookById(id){
+function addBookById(book_id){
+
+  let configObj = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    }
+  };
+   
+  fetch(`http://localhost:3002/books/${book_id}`, configObj)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(object) {
+      console.log(object);
+      addAllBooks([object])
+    });
 
 }
 
@@ -82,30 +99,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
       })
 
       document.getElementById("submit").addEventListener('click', (event) => {
-
         let book_id = document.getElementById("book_id").value
-        //let contents = document.getElementById("contents").value
-        //let author_name = document.getElementById("author_name").value
-      
         console.log(book_id)
-      
-         
-        let configObj = {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          }
-        };
-         
-        fetch(`http://localhost:3002/books/${book_id}`, configObj)
-          .then(function(response) {
-            return response.json();
-          })
-          .then(function(object) {
-            console.log(object);
-          });
-      
+
+        clearBooks()
+        addBookById(book_id)
       });
        
      
