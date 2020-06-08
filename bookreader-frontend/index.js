@@ -85,7 +85,7 @@ function addBookById(book_id){
     })
     .then(function(object) {
       console.log(object);
-      addAllBooks([object])
+      addBooks([object])
     });
 
 }
