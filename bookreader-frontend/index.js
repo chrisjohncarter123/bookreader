@@ -1,6 +1,8 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
 
+    
+
     const books = document.getElementById("books")
       
 
@@ -12,6 +14,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
           "Access-Control-Allow-Origin": "*"
         }
       };
+
+      document.getElementById("view_all").addEventListener("click", 
+        () => {})
        
       fetch("http://localhost:3002/books", configObj)
         .then(function(response) {
