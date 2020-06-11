@@ -13,11 +13,21 @@
 </head>
 <body>
     <h1 id="main_title">Book Reader</h1>
+    <hr />
     <button id="view_all" type="button" class="btn btn-primary">View All</button>
+    <button id="clear" type="button" class="btn btn-primary">Clear</button>
 
+    <hr />
+    <h2 class="sub_title">New Book:</h2>
+    <label> Book Name: <input type="text" name="book_name" id="book_name" /></label><br />
+    <label> Author Name: <input type="text" name="author_name" id="author_name" /></label><br />
+    <label> Book Contents: <input type="text" name="book_contents" id="book_contents" /></label><br />
+    <button id="add_new" type="button" class="btn btn-primary">Add New</button>
+
+
+    <hr />
     <h2 class="sub_title">Search</h2>
-
-    <label> Book ID: <input type="text" name="book_id" id="book_id" /></label><br />
+    Book ID: <input type="text" name="book_id" id="book_id" value='0'/><br />
     <button id="submit" type="button" class="btn btn-primary">Search</button>
     
     <div id="books">

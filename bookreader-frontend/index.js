@@ -29,6 +29,15 @@ function addBooks(object){
 
     object.forEach(element => {
 
+      let configObj = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        }
+      };
+
       document.getElementById(`more_information_${element.id}`).addEventListener('click', (event) => {
         console.log(`click ${element.id}`)
 
@@ -78,14 +87,18 @@ function addBookById(book_id){
       "Accept": "application/json"
     }
   };
+
+  console.log(`http://localhost:3002/books/${book_id}`)
    
   fetch(`http://localhost:3002/books/${book_id}`, configObj)
     .then(function(response) {
       return response.json();
     })
     .then(function(object) {
-      console.log(object);
       addBooks([object])
+    })
+    .catch(error => {
+      console.error('Error:', error);
     });
 
 }
@@ -98,8 +111,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
         addAllBooks()
       })
 
+      document.getElementById("clear").addEventListener("click", () => {
+        clearBooks()
+      })
+
       document.getElementById("submit").addEventListener('click', (event) => {
-        let book_id = document.getElementById("book_id").value
+        let book_id = document.getElementById('book_id').value
         console.log(book_id)
 
         clearBooks()
