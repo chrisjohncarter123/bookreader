@@ -119,8 +119,8 @@ function addAllBooks(){
 
 function createBook(){
   let formData = {
-    bookName: "testName",
-    bookContents: "testContents"
+    name: "testName",
+    contents: "testContents"
   };
    
   let configObj = {

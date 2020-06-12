@@ -23,10 +23,11 @@ class BooksController < ApplicationController
         puts ("params:::")
         puts (params)
 
-        book = Book.create(
-            name: params["book_name"],
-            contents: params["book_contents"]
+        book = Book.new(
+            name: params["name"],
+            contents: params["contents"]
         )
+        book.save
         render json: BooksSerializer.new(book).to_serialized_json
 
     end
