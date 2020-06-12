@@ -1,5 +1,10 @@
 
 class book{
+
+  addBook(){
+
+  }
+
   
 }
 
@@ -99,6 +104,8 @@ function addBooks(object){
     })
 
 }
+
+
 function addAllBooks(){
 
   let configObj = {
@@ -181,7 +188,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
      a.AddEventsToButtons()
        
 
-  });
+});
 
 
   
