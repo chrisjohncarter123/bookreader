@@ -27,7 +27,12 @@ class BooksController < ApplicationController
         if book
             render json: BooksSerializer.new(book).to_serialized_json
         else
-            render json: { message: 'No book found with that id' }
+            book = Book.create(
+                name: params["book_name"],
+                content: params["book_contents"]
+            )
+
+            render json: BooksSerializer.new(book).to_serialized_json
         end
 
     end
