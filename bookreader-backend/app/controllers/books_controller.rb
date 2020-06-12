@@ -23,6 +23,13 @@ class BooksController < ApplicationController
         puts ("params:::")
         puts (params)
 
+        book = Book.find_by(id: params[:id])
+        if book
+            render json: BooksSerializer.new(book).to_serialized_json
+        else
+            render json: { message: 'No book found with that id' }
+        end
+
     end
 
 end
