@@ -1,3 +1,36 @@
+
+class application{
+
+  constructor(){
+    
+  }
+
+  AddEventsToButtons(){
+
+    document.getElementById("view_all").addEventListener("click", (event) => {
+      event.preventDefault()
+      clearBooks()
+      addAllBooks()
+    })
+
+    document.getElementById("clear").addEventListener("click", (event) => {
+      event.preventDefault()
+      clearBooks()
+    })
+
+    document.getElementById("submit").addEventListener('click', (event) => {
+      event.preventDefault()
+      let book_id = document.getElementById('book_id').value
+      console.log(book_id)
+
+      clearBooks()
+      addBookById(book_id)
+    });
+
+  }
+
+}
+
 function clearBooks(){
   console.log("clear")
   const books = document.getElementById("books")
@@ -106,31 +139,15 @@ function addBookById(book_id){
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
 
-      document.getElementById("view_all").addEventListener("click", (event) => {
-        event.preventDefault()
-        clearBooks()
-        addAllBooks()
-      })
+     let a = new application()
 
-      document.getElementById("clear").addEventListener("click", (event) => {
-        event.preventDefault()
-        clearBooks()
-      })
-
-      document.getElementById("submit").addEventListener('click', (event) => {
-        event.preventDefault()
-        let book_id = document.getElementById('book_id').value
-        console.log(book_id)
-
-        clearBooks()
-        addBookById(book_id)
-      });
+     a.AddEventsToButtons()
        
-     
 
   });
 
 
+  
 
 
 
