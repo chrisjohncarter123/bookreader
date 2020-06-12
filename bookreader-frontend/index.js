@@ -132,7 +132,7 @@ function createBook(){
     body: JSON.stringify(formData)
   };
    
-  fetch("http://localhost:3000/books", configObj)
+  fetch("http://localhost:3002/books", configObj)
     .then(function(response) {
       return response.json();
     })

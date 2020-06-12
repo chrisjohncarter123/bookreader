@@ -20,6 +20,8 @@ class BooksController < ApplicationController
     end
 
     def create
+        puts ("params:::")
+        puts (params)
 
     end
 
