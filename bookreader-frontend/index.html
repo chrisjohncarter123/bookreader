@@ -12,23 +12,32 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </head>
 <body>
+  
     <h1 id="main_title">Book Reader</h1>
     <hr />
-    <button id="view_all" type="button" class="btn btn-primary">View All</button>
-    <button id="clear" type="button" class="btn btn-primary">Clear</button>
+    <form>
+      <input type="submit" id="view_all" value="View All" class="btn btn-primary">
+    </form>
+    <form>
+      <input type="submit" id="clear" value="Clear" class="btn btn-primary">
+    </form>
 
     <hr />
     <h2 class="sub_title">New Book:</h2>
-    <label> Book Name: <input type="text" name="book_name" id="book_name" /></label><br />
-    <label> Author Name: <input type="text" name="author_name" id="author_name" /></label><br />
-    <label> Book Contents: <input type="text" name="book_contents" id="book_contents" /></label><br />
-    <button id="add_new" type="button" class="btn btn-primary">Add New</button>
-
+    <form>
+      <label> Book Name: <input type="text" name="book_name" id="book_name" /></label><br />
+      <label> Author Name: <input type="text" name="author_name" id="author_name" /></label><br />
+      <label> Book Contents: <input type="text" name="book_contents" id="book_contents" /></label><br />
+      <input id="add_new" type="submit" value="Create Book" class="btn btn-primary">
+      <p id="create_book_message"></p>
+    </form>
 
     <hr />
     <h2 class="sub_title">Search</h2>
-    Book ID: <input type="text" name="book_id" id="book_id" value='0'/><br />
-    <button id="submit" type="button" class="btn btn-primary">Search</button>
+    <form>
+      Book ID: <input type="text" name="book_id" id="book_id" value='0'/><br />
+      <input id="submit" type="submit" value="Search" class="btn btn-primary">
+    </form>
     
     <div id="books">
         

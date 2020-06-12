@@ -106,16 +106,19 @@ function addBookById(book_id){
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
 
-      document.getElementById("view_all").addEventListener("click", () => {
+      document.getElementById("view_all").addEventListener("click", (event) => {
+        event.preventDefault()
         clearBooks()
         addAllBooks()
       })
 
-      document.getElementById("clear").addEventListener("click", () => {
+      document.getElementById("clear").addEventListener("click", (event) => {
+        event.preventDefault()
         clearBooks()
       })
 
       document.getElementById("submit").addEventListener('click', (event) => {
+        event.preventDefault()
         let book_id = document.getElementById('book_id').value
         console.log(book_id)
 
