@@ -1,4 +1,8 @@
 
+class book{
+  
+}
+
 class application{
 
   constructor(){
