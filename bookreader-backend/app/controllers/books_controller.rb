@@ -25,13 +25,9 @@ class BooksController < ApplicationController
 
         book = Book.create(
             name: params["book_name"],
-            content: params["book_contents"]
+            contents: params["book_contents"]
         )
-        if book
-            render json: BooksSerializer.new(book).to_serialized_json
-        else
-            render json: { message: 'Error creating book' }
-        end
+        render json: BooksSerializer.new(book).to_serialized_json
 
     end
 
