@@ -23,16 +23,14 @@ class BooksController < ApplicationController
         puts ("params:::")
         puts (params)
 
-        book = Book.find_by(id: params[:id])
+        book = Book.create(
+            name: params["book_name"],
+            content: params["book_contents"]
+        )
         if book
             render json: BooksSerializer.new(book).to_serialized_json
         else
-            book = Book.create(
-                name: params["book_name"],
-                content: params["book_contents"]
-            )
-
-            render json: BooksSerializer.new(book).to_serialized_json
+            render json: { message: 'Error creating book' }
         end
 
     end
