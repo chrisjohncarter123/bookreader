@@ -1,7 +1,11 @@
 
 class book{
 
+
+
   addBook(){
+
+    
 
   }
 
@@ -20,41 +24,9 @@ class application{
     books.innerHTML = ``
   }
 
-  AddEventsToButtons(){
-
-    document.getElementById("view_all").addEventListener("click", (event) => {
-      event.preventDefault()
-      this.clearBooks()
-      addAllBooks()
-    })
-
-    document.getElementById("clear").addEventListener("click", (event) => {
-      event.preventDefault()
-      this.clearBooks()
-    })
-
-    document.getElementById("create_book").addEventListener("click", (event) => {
-      event.preventDefault()
-      this.createBook()
-    })
-
-    document.getElementById("submit").addEventListener('click', (event) => {
-      event.preventDefault()
-      let book_id = document.getElementById('book_id').value
-      console.log(book_id)
-
-      this.clearBooks()
-      addBookById(book_id)
-    });
-
-  }
-
-}
 
 
-
-
-function addBooks(object){
+addBooks(object){
 
   let booksList = ``
     object.forEach(element => {
@@ -103,11 +75,40 @@ function addBooks(object){
       });
 
     })
+  }
 
-}
 
+  AddEventsToButtons(){
 
-function addAllBooks(){
+    document.getElementById("view_all").addEventListener("click", (event) => {
+      event.preventDefault()
+      this.clearBooks()
+      this.addAllBooks()
+    })
+
+    document.getElementById("clear").addEventListener("click", (event) => {
+      event.preventDefault()
+      this.clearBooks()
+    })
+
+    document.getElementById("create_book").addEventListener("click", (event) => {
+      event.preventDefault()
+      this.createBook()
+    })
+
+    document.getElementById("submit").addEventListener('click', (event) => {
+      event.preventDefault()
+      let book_id = document.getElementById('book_id').value
+      console.log(book_id)
+
+      this.clearBooks()
+      addBookById(book_id)
+    });
+
+  }
+
+  
+addAllBooks(){
 
   let configObj = {
     method: "GET",
@@ -123,13 +124,15 @@ function addAllBooks(){
   })
   .then(function(object) {
     console.log(object)
-    addBooks(object)
+    this.addBooks(object)
 
   });
 
 }
 
-function createBook(){
+
+
+ createBook(){
   let formData = {
     name: document.getElementById('book_name').value,
     author_name: document.getElementById('author_name').value,
@@ -156,7 +159,7 @@ function createBook(){
 }
 
 
-function addBookById(book_id){
+ addBookById(book_id){
 
   let configObj = {
     method: "GET",
@@ -180,6 +183,12 @@ function addBookById(book_id){
     });
 
 }
+
+}
+
+
+
+
 
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
