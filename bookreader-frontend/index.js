@@ -14,22 +14,28 @@ class application{
     
   }
 
+  clearBooks(){
+    console.log("clear")
+    const books = document.getElementById("books")
+    books.innerHTML = ``
+  }
+
   AddEventsToButtons(){
 
     document.getElementById("view_all").addEventListener("click", (event) => {
       event.preventDefault()
-      clearBooks()
+      this.clearBooks()
       addAllBooks()
     })
 
     document.getElementById("clear").addEventListener("click", (event) => {
       event.preventDefault()
-      clearBooks()
+      this.clearBooks()
     })
 
     document.getElementById("create_book").addEventListener("click", (event) => {
       event.preventDefault()
-      createBook()
+      this.createBook()
     })
 
     document.getElementById("submit").addEventListener('click', (event) => {
@@ -37,7 +43,7 @@ class application{
       let book_id = document.getElementById('book_id').value
       console.log(book_id)
 
-      clearBooks()
+      this.clearBooks()
       addBookById(book_id)
     });
 
@@ -47,11 +53,6 @@ class application{
 
 
 
-function clearBooks(){
-  console.log("clear")
-  const books = document.getElementById("books")
-  books.innerHTML = ``
-}
 
 function addBooks(object){
 
