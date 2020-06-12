@@ -31,6 +31,8 @@ class application{
 
 }
 
+
+
 function clearBooks(){
   console.log("clear")
   const books = document.getElementById("books")
@@ -109,6 +111,8 @@ function addAllBooks(){
   });
 
 }
+
+
 
 
 function addBookById(book_id){
