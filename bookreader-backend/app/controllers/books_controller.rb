@@ -20,8 +20,6 @@ class BooksController < ApplicationController
     end
 
     def create
-        puts ("params:::")
-        puts (params)
 
         author = Author.find_by(name: params["author_name"])
 
