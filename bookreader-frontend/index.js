@@ -112,7 +112,9 @@ function addAllBooks(){
 
 }
 
-
+function createBook(){
+  
+}
 
 
 function addBookById(book_id){
