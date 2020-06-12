@@ -119,9 +119,9 @@ function addAllBooks(){
 
 function createBook(){
   let formData = {
-    name: "testName",
-    author_name: "Bill Johnson",
-    contents: "testContents"
+    name: document.getElementById('book_name').value,
+    author_name: document.getElementById('author_name').value,
+    contents: document.getElementById('book_contents').value,
   };
    
   let configObj = {
