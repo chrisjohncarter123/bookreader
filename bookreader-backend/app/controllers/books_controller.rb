@@ -21,7 +21,7 @@ class BooksController < ApplicationController
 
     def create
 
-        author = Author.find_by(name: params["author_name"])
+        author = Author.find_or_create_by(name: params["author_name"])
 
         book = Book.new(
             name: params["name"],
