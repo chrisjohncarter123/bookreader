@@ -23,11 +23,16 @@ class BooksController < ApplicationController
         puts ("params:::")
         puts (params)
 
+        author = Author.find_by(name: params["author_name"])
+
         book = Book.new(
             name: params["name"],
+            author_id: author.id,
             contents: params["contents"]
         )
         book.save
+
+        
         render json: BooksSerializer.new(book).to_serialized_json
 
     end

@@ -120,6 +120,7 @@ function addAllBooks(){
 function createBook(){
   let formData = {
     name: "testName",
+    author_name: "Bill Johnson",
     contents: "testContents"
   };
    
