@@ -18,6 +18,11 @@ class application{
       clearBooks()
     })
 
+    document.getElementById("create_book").addEventListener("click", (event) => {
+      event.preventDefault()
+      createBook()
+    })
+
     document.getElementById("submit").addEventListener('click', (event) => {
       event.preventDefault()
       let book_id = document.getElementById('book_id').value
