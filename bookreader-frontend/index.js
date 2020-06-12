@@ -114,8 +114,8 @@ function addAllBooks(){
 
 function createBook(){
   let formData = {
-    dogName: "Byron",
-    dogBreed: "Poodle"
+    bookName: "testName",
+    bookContents: "testContents"
   };
    
   let configObj = {
@@ -127,7 +127,7 @@ function createBook(){
     body: JSON.stringify(formData)
   };
    
-  fetch("http://localhost:3000/dogs", configObj)
+  fetch("http://localhost:3000/books", configObj)
     .then(function(response) {
       return response.json();
     })
