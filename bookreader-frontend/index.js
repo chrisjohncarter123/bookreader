@@ -1,15 +1,32 @@
 
-class book{
+class author{
+  static allAuthors = []
 
-
-
-  addBook(){
-
-    
+  constructor(name){
+    this.name = name
 
   }
 
+  static loadAllAuthors(){
+
+  }
+
+}
+class book{
+
   
+
+  constructor(name, author, contents){
+    this.name = name
+    this.author = author
+    this.contents = contents
+    allBooks.push(this)
+  }
+
+  static loadAllBooks(){
+
+  }
+
 }
 
 class application{
@@ -106,7 +123,6 @@ addBooks(object){
     });
 
   }
-
   
 addAllBooks(){
 
@@ -124,7 +140,7 @@ addAllBooks(){
   })
   .then(function(object) {
     console.log(object)
-    this.addBooks(object)
+    addBooks(object)
 
   });
 
@@ -182,7 +198,7 @@ addAllBooks(){
       console.error('Error:', error);
     });
 
-}
+  }
 
 }
 
