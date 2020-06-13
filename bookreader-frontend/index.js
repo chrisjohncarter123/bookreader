@@ -93,8 +93,6 @@ class application{
     books.innerHTML = ``
   }
 
-
-
 addBooks(object){
 
   let booksList = ``
@@ -180,7 +178,7 @@ addBooks(object){
 
 
 
-
+/*
  addBookById(book_id){
 
   let configObj = {
@@ -205,6 +203,7 @@ addBooks(object){
     });
 
   }
+  */
 
 }
 
