@@ -40,11 +40,16 @@ class Book{
   }
 
   static getBookByID(id){
+    let result = null
     Book.allBooks.forEach((element) => {
-      if(element.id === id){
-        return element
+      
+      if(element.id == id){
+        console.log(element)
+        result = element
       }
     })
+
+    return result
     
 
   }
@@ -115,6 +120,13 @@ class Application{
     console.log("clear")
     const books = document.getElementById("books")
     books.innerHTML = ``
+  }
+
+  addBookById(book_id){
+    console.log(book_id)
+    console.log(Book.getBookByID(book_id))
+    this.addBooks([Book.getBookByID(book_id)])
+
   }
 
   addAllBooks(){
@@ -205,11 +217,7 @@ class Application{
   }
   
 
-  addBookById(book_id){
 
-    addBooks([Book.getBookByID(book_id)])
-
-  }
 }
 
 
