@@ -15,13 +15,16 @@ class Author{
 }
 class Book{
 
-  static allBooks = []
+  static allBooks = new Array()
 
   constructor(name, author, contents){
     this.name = name
     this.author = author
     this.contents = contents
-    allBooks.push(this)
+    if ( typeof Book.allBooks == 'undefined' ) {
+      Book.allBooks = new Array()
+    }
+    Book.allBooks.push(this)
   }
 
   static createBook(){
@@ -70,11 +73,8 @@ class Book{
           element["name"],
           null,
           element["contents"]
-
         )
-
       })
-  
     });
 
   }
@@ -94,6 +94,7 @@ class application{
   }
 
   addAllBooks(){
+    console.log(Book.allBooks)
     this.addBooks(Book.allBooks)
   }
 
@@ -105,7 +106,7 @@ class application{
         `
         <p>
           <h1>Title: ${element.name}</h1>
-          <h1>Author: ${element.author.name}</h1>
+          <h1>Author: ${element.name}</h1>
         </p>
 
         <p id=more_information_${element.id}>
