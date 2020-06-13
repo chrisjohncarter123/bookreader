@@ -8,6 +8,20 @@ class Author{
 
   }
 
+  static findOrCreateByName(authorName){
+    let result = null
+    Author.allAuthors.forEach((element) => {
+      if(element.name == authorName){
+        result = element
+      }
+    })
+    if(result === null){
+      result = new Author(authorName)
+    }
+    return result
+
+  }
+
 }
 class Book{
 
@@ -16,16 +30,8 @@ class Book{
   constructor(name, authorName, contents){
     this.name = name
 
-    this.author = null
-    Author.allAuthors.forEach((element) => {
-      if(element.name == authorName){
-        this.author = element
-        break
-      }
-    })
-    if(this.author === null){
-      this.author = new Author(authorName)
-    }
+    this.author = Author.findOrCreateByName(authorName)
+    
     this.contents = contents
 
     Book.allBooks.push(this)
@@ -72,10 +78,11 @@ class Book{
     })
     .then(function(object) {
       console.log(object)
+      
       object.forEach(element => {
         let b = new Book(
           element["name"],
-          new Author("New Author Name"),
+          element["author"]["name"],
           element["contents"]
         )
       })
