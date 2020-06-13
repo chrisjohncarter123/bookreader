@@ -1,11 +1,16 @@
-
 class Author{
+
+  static allAuthors = []
 
   constructor(name){
    this.name = name
+   Author.allAuthors.push(this)
 
   }
 
+  static find_or_create_by(name){
+
+  }
 
 }
 class Book{
@@ -99,7 +104,7 @@ class application{
         `
         <p>
           <h1>Title: ${element.name}</h1>
-          <h1>Author: ${element.name}</h1>
+          <h1>Author: ${element.author.name}</h1>
         </p>
 
         <p id=more_information_${element.id}>
@@ -213,6 +218,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
 
      let a = new application()
+
      Book.loadAllBooks()
 
      a.AddEventsToButtons()
