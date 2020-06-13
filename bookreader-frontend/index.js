@@ -8,18 +8,24 @@ class Author{
 
   }
 
-  static find_or_create_by(name){
-
-  }
-
 }
 class Book{
 
   static allBooks = new Array()
 
-  constructor(name, author, contents){
+  constructor(name, authorName, contents){
     this.name = name
-    this.author = author
+
+    this.author = null
+    Author.allAuthors.forEach((element) => {
+      if(element.name == authorName){
+        this.author = element
+        break
+      }
+    })
+    if(this.author === null){
+      this.author = new Author(authorName)
+    }
     this.contents = contents
 
     Book.allBooks.push(this)
