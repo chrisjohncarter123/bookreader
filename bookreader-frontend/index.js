@@ -27,7 +27,9 @@ class Book{
 
   static allBooks = new Array()
 
-  constructor(name, authorName, contents){
+  constructor(id, name, authorName, contents){
+    this.id = id
+
     this.name = name
 
     this.author = Author.findOrCreateByName(authorName)
@@ -35,6 +37,16 @@ class Book{
     this.contents = contents
 
     Book.allBooks.push(this)
+  }
+
+  static getBookByID(id){
+    Book.allBooks.forEach((element) => {
+      if(element.id === id){
+        return element
+      }
+    })
+    
+
   }
 
   static createBook(){
@@ -81,6 +93,7 @@ class Book{
       
       object.forEach(element => {
         let b = new Book(
+          element["id"],
           element["name"],
           element["author"]["name"],
           element["contents"]
@@ -92,7 +105,7 @@ class Book{
 
 }
 
-class application{
+class Application{
 
   constructor(){
     
@@ -116,6 +129,7 @@ class application{
         books.innerHTML +=
         `
         <p>
+          <h1>ID: ${element.id}</h1>
           <h1>Title: ${element.name}</h1>
           <h1>Author: ${element.author.name}</h1>
         </p>
@@ -185,42 +199,17 @@ class application{
       console.log(book_id)
 
       this.clearBooks()
-      addBookById(book_id)
+      this.addBookById(book_id)
     });
 
   }
   
 
+  addBookById(book_id){
 
-
-
-/*
- addBookById(book_id){
-
-  let configObj = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    }
-  };
-
-  console.log(`http://localhost:3002/books/${book_id}`)
-   
-  fetch(`http://localhost:3002/books/${book_id}`, configObj)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(object) {
-      addBooks([object])
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+    addBooks([Book.getBookByID(book_id)])
 
   }
-  */
-
 }
 
 
@@ -230,7 +219,7 @@ class application{
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
 
-     let a = new application()
+     let a = new Application()
 
      Book.loadAllBooks()
 
