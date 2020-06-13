@@ -1,5 +1,5 @@
 
-class author{
+class Author{
   static allAuthors = []
 
   constructor(name){
@@ -13,7 +13,7 @@ class author{
   }
 
 }
-class book{
+class Book{
 
   static allBooks = []
 
@@ -22,6 +22,31 @@ class book{
     this.author = author
     this.contents = contents
     allBooks.push(this)
+  }
+
+  static createBook(){
+    let formData = {
+      name: document.getElementById('book_name').value,
+      author_name: document.getElementById('author_name').value,
+      contents: document.getElementById('book_contents').value,
+    };
+    
+    let configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(formData)
+    };
+    
+    fetch("http://localhost:3002/books", configObj)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(object) {
+        console.log(object);
+      });
   }
 
   static loadAllBooks(){
@@ -40,7 +65,15 @@ class book{
     })
     .then(function(object) {
       console.log(object)
-      addBooks(object)
+      object.forEach(element => {
+        let b = new Book(
+          element["name"],
+          null,
+          element["contents"]
+
+        )
+
+      })
   
     });
 
@@ -146,31 +179,6 @@ addBooks(object){
 
 
 
- createBook(){
-  let formData = {
-    name: document.getElementById('book_name').value,
-    author_name: document.getElementById('author_name').value,
-    contents: document.getElementById('book_contents').value,
-  };
-   
-  let configObj = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify(formData)
-  };
-   
-  fetch("http://localhost:3002/books", configObj)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(object) {
-      console.log(object);
-    });
-
-}
 
 
  addBookById(book_id){
