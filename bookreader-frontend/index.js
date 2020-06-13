@@ -4,6 +4,7 @@ class author{
 
   constructor(name){
     this.name = name
+    allBooks.push(this)
 
   }
 
@@ -14,7 +15,7 @@ class author{
 }
 class book{
 
-  
+  static allBooks = []
 
   constructor(name, author, contents){
     this.name = name
@@ -24,6 +25,24 @@ class book{
   }
 
   static loadAllBooks(){
+
+    let configObj = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      }
+    };
+    fetch("http://localhost:3002/books", configObj)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(object) {
+      console.log(object)
+      addBooks(object)
+  
+    });
 
   }
 
@@ -124,27 +143,6 @@ addBooks(object){
 
   }
   
-addAllBooks(){
-
-  let configObj = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json",
-      "Access-Control-Allow-Origin": "*"
-    }
-  };
-  fetch("http://localhost:3002/books", configObj)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(object) {
-    console.log(object)
-    addBooks(object)
-
-  });
-
-}
 
 
 
