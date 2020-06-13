@@ -1,16 +1,11 @@
 
 class Author{
-  static allAuthors = []
 
   constructor(name){
-    this.name = name
-    allBooks.push(this)
+   this.name = name
 
   }
 
-  static loadAllAuthors(){
-
-  }
 
 }
 class Book{
@@ -21,9 +16,7 @@ class Book{
     this.name = name
     this.author = author
     this.contents = contents
-    if ( typeof Book.allBooks == 'undefined' ) {
-      Book.allBooks = new Array()
-    }
+
     Book.allBooks.push(this)
   }
 
@@ -71,7 +64,7 @@ class Book{
       object.forEach(element => {
         let b = new Book(
           element["name"],
-          null,
+          new Author("New Author Name"),
           element["contents"]
         )
       })
