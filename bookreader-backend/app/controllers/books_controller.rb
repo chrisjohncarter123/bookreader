@@ -39,7 +39,8 @@ class BooksController < ApplicationController
         puts("delete")
         book = Book.find_by(id: params[:id])
         if book
-            render json: BooksSerializer.new(book).to_serialized_json
+            book.delete
+            render json: { message: `Deleted book with id ${params[:id]}` }
         else
             render json: { message: 'No book found with that id' }
         end
