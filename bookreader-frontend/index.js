@@ -55,6 +55,7 @@ class Book{
   }
 
   deleteBook(){
+    console.log("delete " + this.id)
     let formData = {
       id: this.id
     };
