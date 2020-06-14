@@ -54,6 +54,10 @@ class Book{
 
   }
 
+  static deleteBook(){
+   
+  }
+
   static createBook(){
     let formData = {
       name: document.getElementById('book_name').value,
