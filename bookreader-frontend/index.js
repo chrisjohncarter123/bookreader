@@ -54,15 +54,13 @@ class Book{
 
   }
 
-  static deleteBook(){
+  deleteBook(){
     let formData = {
-      name: document.getElementById('book_name').value,
-      author_name: document.getElementById('author_name').value,
-      contents: document.getElementById('book_contents').value,
+      book_id: document.getElementById('delete_book_id').value
     };
     
     let configObj = {
-      method: "POST",
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
