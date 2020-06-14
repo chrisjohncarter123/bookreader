@@ -55,6 +55,28 @@ class Book{
   }
 
   static deleteBook(){
+    let formData = {
+      name: document.getElementById('book_name').value,
+      author_name: document.getElementById('author_name').value,
+      contents: document.getElementById('book_contents').value,
+    };
+    
+    let configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(formData)
+    };
+    
+    fetch("http://localhost:3002/books", configObj)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(object) {
+        console.log(object);
+      });
    
   }
 
