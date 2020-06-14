@@ -56,7 +56,7 @@ class Book{
 
   deleteBook(){
     let formData = {
-      book_id: document.getElementById('delete_book_id').value
+      book_id: this.id
     };
     
     let configObj = {
@@ -146,6 +146,13 @@ class Application{
     books.innerHTML = ``
   }
 
+  deleteBook(){
+    let bookId = document.getElementById('delete_book_id').value
+    let book = Book.getBookByID(bookId)
+    book.deleteBook()
+    
+  }
+
   addBookById(book_id){
     console.log(book_id)
     console.log(Book.getBookByID(book_id))
@@ -227,6 +234,12 @@ class Application{
     document.getElementById("create_book").addEventListener("click", (event) => {
       event.preventDefault()
       this.createBook()
+    })
+
+    document.getElementById("submit_delete").addEventListener("click", (event) => {
+      event.preventDefault()
+      this.deleteBook()
+      this.clearBooks()
     })
 
     document.getElementById("submit").addEventListener('click', (event) => {
