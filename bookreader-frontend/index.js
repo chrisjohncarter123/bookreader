@@ -56,7 +56,7 @@ class Book{
 
   deleteBook(){
     let formData = {
-      book_id: this.id
+      id: this.id
     };
     
     let configObj = {
