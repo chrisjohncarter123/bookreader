@@ -23,7 +23,7 @@
     </form>
 
     <hr />
-    <h2 class="sub_title">New Book:</h2>
+    <h2 class="sub_title">Create Book:</h2>
     <form>
       <label> Book Name: <input type="text" name="book_name" id="book_name" /></label><br />
       <label> Author Name: <input type="text" name="author_name" id="author_name" /></label><br />
@@ -33,10 +33,16 @@
     </form>
 
     <hr />
-    <h2 class="sub_title">Search</h2>
+    <h2 class="sub_title">Search Book</h2>
     <form>
       Book ID: <input type="text" name="book_id" id="book_id" value='0'/><br />
       <input id="submit" type="submit" value="Search" class="btn btn-primary">
+    </form>
+
+    <h2 class="sub_title">Delete Book</h2>
+    <form>
+      Book ID: <input type="text" name="delete_book_id" id="delete_book_id" value='0'/><br />
+      <input id="submit_delete" type="submit" value="Delete" class="btn btn-primary">
     </form>
     
     <div id="books">
