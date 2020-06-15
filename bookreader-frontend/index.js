@@ -74,10 +74,11 @@ class Book{
         return response.json();
       })
       .then(function(object) {
-        console.log(this.this.id);
+        console.log(object)
+        //console.log(this.this.id);
         //remove from array
 
-        Book.allBooks = Book.allBooks.filter(function(ele){ return ele.id != this.id; })
+       // Book.allBooks = Book.allBooks.filter(function(ele){ return ele.id != this.id; })
         
 
       });
@@ -169,6 +170,10 @@ class Application{
 
   }
 
+  loadAllBooks(){
+    Book.loadAllBooks()
+  }
+
   addAllBooks(){
     console.log(Book.allBooks)
     this.addBooks(Book.allBooks)
@@ -229,10 +234,10 @@ class Application{
 
   AddEventsToButtons(){
 
-    document.getElementById("view_all").addEventListener("click", (event) => {
+    document.getElementById("load_all").addEventListener("click", (event) => {
       event.preventDefault()
       this.clearBooks()
-      this.addAllBooks()
+      this.loadAllBooks()
     })
 
     document.getElementById("clear").addEventListener("click", (event) => {
