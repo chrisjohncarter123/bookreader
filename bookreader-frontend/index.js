@@ -43,7 +43,7 @@ class Book{
 
   static BookFactory(object){
 
-    let newBook = Object.assign({}, object)
+    let newBook = Object.assign(new Book(), object)
     console.log(newBook)
     Book.allBooks.push(newBook)
     return newBook
