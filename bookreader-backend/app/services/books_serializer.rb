@@ -6,7 +6,8 @@ class BooksSerializer
 
 
     def to_serialized_json
-        @book.to_json(:include => {
+        @book.to_json(
+            :include => {
           :author => {:only => [:name]}
         }, :except => [:updated_at, :created_at])
     end

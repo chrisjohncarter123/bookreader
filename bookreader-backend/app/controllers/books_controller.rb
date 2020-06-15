@@ -3,7 +3,7 @@ require_relative '../services/books_serializer'
 class BooksController < ApplicationController
 
     def index
-        puts("index")
+       # puts("index")
         books = Book.all
 
         render json: BooksSerializer.new(books).to_serialized_json
