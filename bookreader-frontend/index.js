@@ -204,8 +204,9 @@ class Application{
         `
         <p>
           <h1>ID: ${element.id}</h1>
-          <h1>Title: ${element.name}</h1>
-          <h1>Author -> ID: ${element.author.id}</h1>
+          <h1>Name: ${element.name}</h1>
+          <h1>Contents: ${element.contents}</h1>
+          <h1>Author ID: ${element.author_id}</h1>
           <h1>Author -> Name: ${element.author.name}</h1>
         </p>
 
