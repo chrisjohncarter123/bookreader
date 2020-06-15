@@ -240,6 +240,12 @@ class Application{
       this.loadAllBooks()
     })
 
+    document.getElementById("show_all").addEventListener("click", (event) => {
+      event.preventDefault()
+      this.clearBooks()
+      this.addAllBooks()
+    })
+
     document.getElementById("clear").addEventListener("click", (event) => {
       event.preventDefault()
       this.clearBooks()
