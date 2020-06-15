@@ -44,8 +44,6 @@ class Book{
   static BookFactory(object){
 
     let newBook = Object.assign(new Book(), object)
-    console.log(newBook)
-    Book.allBooks.push(newBook)
     return newBook
 
   }
@@ -207,7 +205,8 @@ class Application{
         <p>
           <h1>ID: ${element.id}</h1>
           <h1>Title: ${element.name}</h1>
-          <h1>Author: ${element.author.name}</h1>
+          <h1>Author -> ID: ${element.author.id}</h1>
+          <h1>Author -> Name: ${element.author.name}</h1>
         </p>
 
         <p id=more_information_${element.id}>
