@@ -140,16 +140,20 @@ class Book{
     .then(function(object) {
       console.log(object)
       
+      
       object.forEach(element => {
         Book.BookFactory(element)
 
+        /*
         let b = new Book(
           element["id"],
           element["name"],
           element["author"]["name"],
           element["contents"]
         )
+        */
       })
+      
     });
 
   }
