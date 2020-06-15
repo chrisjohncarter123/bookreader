@@ -69,12 +69,17 @@ class Book{
       body: JSON.stringify(formData)
     };
     
-    fetch("http://localhost:3002/books", configObj)
+    fetch(`http://localhost:3002/books/${this.id}`, configObj)
       .then(function(response) {
         return response.json();
       })
       .then(function(object) {
-        console.log(object);
+        console.log(this.this.id);
+        //remove from array
+
+        Book.allBooks = Book.allBooks.filter(function(ele){ return ele.id != this.id; })
+        
+
       });
    
   }
@@ -139,6 +144,9 @@ class Application{
 
   constructor(){
     
+  }
+  createBook(){
+    Book.createBook()
   }
 
   clearBooks(){

@@ -35,7 +35,7 @@ class BooksController < ApplicationController
 
     end
 
-    def delete
+    def destroy
         puts("delete")
         book = Book.find_by(id: params[:id])
         if book
