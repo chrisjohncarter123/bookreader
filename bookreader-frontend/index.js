@@ -28,6 +28,8 @@ class Book{
   static allBooks = new Array()
 
   constructor(id, name, authorName, contents){
+    
+
     this.id = id
 
     this.name = name
@@ -37,6 +39,15 @@ class Book{
     this.contents = contents
 
     Book.allBooks.push(this)
+  }
+
+  static BookFactory(object){
+
+    let newBook = Object.assign(newBook, object)
+    console.log(newBook)
+    Book.allBooks.push(newBook)
+    return newBook
+
   }
 
   static getBookByID(id){
@@ -130,6 +141,8 @@ class Book{
       console.log(object)
       
       object.forEach(element => {
+        Book.BookFactory()
+
         let b = new Book(
           element["id"],
           element["name"],
