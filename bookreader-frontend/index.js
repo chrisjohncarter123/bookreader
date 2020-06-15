@@ -112,6 +112,8 @@ class Book{
 
   static loadAllBooks(){
 
+    Book.allBooks = new Array()
+
     let configObj = {
       method: "GET",
       headers: {
@@ -223,7 +225,7 @@ class Application{
           })
           .then(function(object) {
             console.log(object)
-            document.getElementById(`contents_${element.id}`).innerHTML += `${object.contents}`
+            document.getElementById(`contents_${element.id}`).innerHTML = `${object.contents}`
           })
 
         });
@@ -284,9 +286,7 @@ class Application{
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
 
-     let a = new Application()
-
-     Book.loadAllBooks()
+     const a = new Application()
 
      a.AddEventsToButtons()
        
